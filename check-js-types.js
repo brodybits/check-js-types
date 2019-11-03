@@ -14,7 +14,7 @@ const cli = meow(`
       --strict Do strict type checking
 
     Examples
-      $ check-js-types bin/**/*.js,lib/**/*.js
+      $ check-js-types --strict bin/**/*.js lib/**/*.js
 
 `, {
     flags: {
