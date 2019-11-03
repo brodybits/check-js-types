@@ -2,6 +2,8 @@
 
 const meow = require('meow')
 
+const globby = require('globby')
+
 const execa = require('execa')
 
 const cli = meow(`
@@ -20,8 +22,6 @@ const cli = meow(`
     }
 })
 
-const c = cli;
-
 const files = cli.input
 
 if (files.length === 0) {
@@ -29,6 +29,10 @@ if (files.length === 0) {
 }
 
 console.info(`files: ${files}`)
+
+const filesList = globby.sync(files)
+
+console.info(`files, expanded using globby: ${filesList}`)
 
 const flags = cli.flags
 
@@ -38,9 +42,14 @@ const args = [].concat(
     '--allowJs',
     '--checkJs',
     '--noEmit',
-    c.flags.strict ? '--strict' : [],
-    '-g',
-    c.input[0]
+    flags.strict ? '--strict' : [],
+    filesList
 )
 
-execa.sync('glob-tsc', args, { stdio: 'inherit' })
+// FUTURE TODO: put this into a more descriptive try/catch block
+// and add testing to ensure this works properly
+console.log('check for valid tsc (TypeScript compiler) version')
+execa.sync('tsc', '--version', { stdio: 'inherit' })
+console.log('valid tsc version found')
+
+execa.sync('tsc', args, { stdio: 'inherit' })
