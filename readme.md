@@ -8,7 +8,7 @@
 
 CLI utility program to check JSDoc types in one or more JavaScript sources, using globs
 
-```
+```shell
 $ check-js-types --help
 
   Check JavaScript types specified in JSDoc comments
