@@ -46,6 +46,6 @@ const args = [].concat(
     filesList
 )
 
-console.log(`calling tsc with args: ${args}`)
+console.log(`calling tsc with args: ${JSON.stringify(args)}`)
 
 execa.sync('tsc', args, { stdio: 'inherit' })
