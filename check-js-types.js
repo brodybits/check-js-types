@@ -2,6 +2,8 @@
 
 const meow = require('meow')
 
+const globby = require('globby')
+
 const execa = require('execa')
 
 const cli = meow(`
@@ -30,6 +32,10 @@ if (files.length === 0) {
 
 console.info(`files: ${files}`)
 
+const filesList = globby.sync(files)
+
+console.info(`files, expanded using globby: ${filesList}`)
+
 const flags = cli.flags
 
 console.info(`flags: ${JSON.stringify(flags)}`)
@@ -39,8 +45,7 @@ const args = [].concat(
     '--checkJs',
     '--noEmit',
     c.flags.strict ? '--strict' : [],
-    '-g',
-    c.input[0]
+    filesList
 )
 
-execa.sync('glob-tsc', args, { stdio: 'inherit' })
+execa.sync('tsc', args, { stdio: 'inherit' })
