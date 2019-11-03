@@ -1,6 +1,6 @@
 {
   "name": "check-js-types",
-  "version": "0.1.0",
+  "version": "0.1.1-dev",
   "description": "Check JavaScript types specified in JSDoc comments",
   "bin": {
     "check-js-types": "check-js-types.js"
