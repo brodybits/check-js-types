@@ -22,8 +22,6 @@ const cli = meow(`
     }
 })
 
-const c = cli;
-
 const files = cli.input
 
 if (files.length === 0) {
@@ -44,7 +42,7 @@ const args = [].concat(
     '--allowJs',
     '--checkJs',
     '--noEmit',
-    c.flags.strict ? '--strict' : [],
+    flags.strict ? '--strict' : [],
     filesList
 )
 
