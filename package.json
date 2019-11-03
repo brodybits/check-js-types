@@ -2,7 +2,9 @@
   "name": "check-js-types",
   "version": "0.0.2-dev",
   "description": "Check JavaScript types specified in JSDoc comments",
-  "bin": { "check-js-types": "check-js-types.js" },
+  "bin": {
+    "check-js-types": "check-js-types.js"
+  },
   "main": "index.js",
   "repository": "https://github.com/brodybits/check-js-types",
   "author": "Christopher J. Brody <chris@brody.consulting>",
