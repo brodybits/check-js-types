@@ -1,0 +1,27 @@
+{
+  "name": "check-js-types",
+  "version": "0.0.1",
+  "description": "Check JavaScript types specified in JSDoc comments",
+  "bin": { "check-js-types": "check-js-types.js" },
+  "main": "index.js",
+  "repository": "https://github.com/brodybits/check-js-types",
+  "author": "Christopher J. Brody <chris@brody.consulting>",
+  "license": "MIT",
+  "scripts": {
+    "check-js": "node check-js-types.js check-js-types.js",
+    "check-js-strict": "node check-js-types.js --strict check-js-types.js",
+    "test": "echo 'not implemented' && exit 1",
+    "test-help": "node check-js-types.js --help",
+    "test-version": "node check-js-types.js --version",
+    "test-invalid-flag": "node check-js-types.js --strct a.js",
+    "test-missing-files": "node check-js-types.js"
+  },
+  "dependencies": {
+    "execa": "^3.2.0",
+    "glob-tsc": "^0.0.1",
+    "meow": "^5.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.6.4"
+  }
+}
