@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "execa": "^3.2.0",
-    "glob-tsc": "^0.0.1",
+    "globby": "^10.0.1",
     "meow": "^5.0.0"
   },
   "devDependencies": {
