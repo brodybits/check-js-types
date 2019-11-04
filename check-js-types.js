@@ -52,4 +52,6 @@ console.log('check for valid tsc (TypeScript compiler) version')
 execa.sync('tsc', ['--version'], { stdio: 'inherit' })
 console.log('valid tsc version found')
 
+console.info(`run tsc with arguments: ${args.join(' ')}`)
+
 execa.sync('tsc', args, { stdio: 'inherit' })
