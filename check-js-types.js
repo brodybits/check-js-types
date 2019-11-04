@@ -49,7 +49,7 @@ const args = [].concat(
 // FUTURE TODO: put this into a more descriptive try/catch block
 // and add testing to ensure this works properly
 console.log('check for valid tsc (TypeScript compiler) version')
-execa.sync('tsc', '--version', { stdio: 'inherit' })
+execa.sync('tsc', ['--version'], { stdio: 'inherit' })
 console.log('valid tsc version found')
 
 execa.sync('tsc', args, { stdio: 'inherit' })
